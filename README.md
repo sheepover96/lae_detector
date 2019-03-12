@@ -1,6 +1,6 @@
 # Subaru-HSC: LAE detector
 
-## requirement
+## Requirements
 - python3 or Docker
 
 ## Required dataset format
@@ -19,3 +19,9 @@ id, narrow_fits_data_path, g_fits_data_path
 ### docker
 under construction
 
+## Output format
+LAE detection result is saved in the fllowing format.
+
+```csv:dataset format
+id, narrow_fits_data_path, g_fits_data_path, LAE_or_Not(1 or 0)
+```
