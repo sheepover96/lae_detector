@@ -31,11 +31,11 @@ class MultiBandDataLoader:
             img_path1 = row_data[IMG_IDX1]
             img_path2= row_data[IMG_IDX2]
             try:
-                image1 = self.load_png_image(img_path1)
+                image1 = self.load_image(img_path1)
                 image1 = self.crop_center(image1, IMG_SIZE, IMG_SIZE)
                 image1 = norm(image1)
 
-                image2 = self.load_png_image(img_path2)
+                image2 = self.load_image(img_path2)
                 image2 = self.crop_center(image2, IMG_SIZE, IMG_SIZE)
                 image2 = norm(image2)
 

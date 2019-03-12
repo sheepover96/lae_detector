@@ -7,7 +7,6 @@ from keras.preprocessing import image
 
 import pandas as pd
 import numpy as np
-import cv2
 import csv, argparse
 
 from utils.data_loader_multi import MultiBandDataLoader
