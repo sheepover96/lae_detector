@@ -31,12 +31,12 @@ def predict(model, test_data):
 def write_multiband_result(dataset, pred_narrow_result_list, pred_g_result_list, pred_multiband_result_list, prob_narrow_list, prob_g_list, output_path):
     with open(output_path, 'w') as f:
         writer = csv.writer(f)
+        writer.writerow(['data_id', 'narrow_img_path', 'g_img_path', 'narrow_prediction', 'g_prediction', 'LAE_prediction', 'narrow_certainty', 'g_certainty'])
         for data_row, pred_narrow_result, pred_g_result, pred_multiband_result, prob_narrow, prob_g in zip(dataset, pred_narrow_result_list, pred_g_result_list, pred_multiband_result_list, prob_narrow_list, prob_g_list):
-            label = data_row[2]
-            image_number = data_row[4]
-            image_path1 = data_row[5]
-            image_path2 = data_row[6]
-            row = [image_number, image_path1, image_path2, label, pred_narrow_result, pred_g_result, pred_multiband_result, prob_narrow, prob_g]
+            image_number = data_row[2]
+            image_path1 = data_row[3]
+            image_path2 = data_row[4]
+            row = [image_number, image_path1, image_path2, pred_narrow_result, pred_g_result, pred_multiband_result, prob_narrow, prob_g]
             writer.writerow(row)
 
 
@@ -65,4 +65,4 @@ for narrow_pred, g_perd in zip(pred_narrow, pred_g):
         pred = 0
     pred_multiband.append(pred)
 
-write_multiband_result(dataset, pred_narrow, pred_g, pred_multiband, prob_narrow, prob_g, './result/multiband_test_classw_400_17.csv')
+write_multiband_result(dataset, pred_narrow, pred_g, pred_multiband, prob_narrow, prob_g, './result/result.csv')
